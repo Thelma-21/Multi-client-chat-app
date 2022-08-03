@@ -72,7 +72,7 @@ public class Client {
                 socket.close();
             }
         }catch (IOException e){
-            e.printStackTrace();
+    //        e.printStackTrace();
         }
     }
 
@@ -80,9 +80,9 @@ public class Client {
     //Run the Program
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your username for the group chat");
+        System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
-        Socket socket = new Socket("localhost", 1234);
+        Socket socket = new Socket("localhost", 6666);
         Client client = new Client(socket, username);
         client.listenForMessage();
         client.sendMessage();

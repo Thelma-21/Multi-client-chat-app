@@ -42,7 +42,7 @@ public class Server {
 
     // Running the server program
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(1234);
+        ServerSocket serverSocket = new ServerSocket(6666);
         Server server = new Server(serverSocket);
         server.startServer();
     }

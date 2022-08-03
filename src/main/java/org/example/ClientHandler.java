@@ -45,6 +45,7 @@ public class ClientHandler implements Runnable {
         while (socket.isConnected()) {
             try {
                 messageFromClient = bufferedReader.readLine();
+                if(messageFromClient == null) throw new IOException();
                 broadcastMessage(messageFromClient);
             } catch (IOException e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
@@ -75,7 +76,7 @@ public class ClientHandler implements Runnable {
     //If the client disconnects for any reason remove them from the list so a message isn't sent down a broken connection.
     public void removeClientHandler(){
         clientHandlers.remove(this);
-        broadcastMessage("SERVER: " + clientUserName + " has left the chat");
+        broadcastMessage("SERVER: " + clientUserName + " has left");
     }
 
 
